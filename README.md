@@ -10,6 +10,7 @@ git pull    # beginning of session
 # 2) commit the changes
 
 vim <somefile>
+git status      # shows list of files changed since last commit
 git add <file or files pertaining to this change>
 git commit -m "<commit message>"
 
