@@ -1,0 +1,7 @@
+apache2
+libapache2-mod-php
+mariadb-server
+mariadb-client
+php
+php-mysqli
+php-gd
