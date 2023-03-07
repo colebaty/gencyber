@@ -32,4 +32,37 @@ Windows, macOS, and Linux each have GUI and command-line capabilities. But
 Windows and macOS are typically operated with the GUI, while Linux is typically
 associated with the command line/terminal
 
+# the language of the command line
+Linux commands have a general structure:
 
+```
+$ <command> <options> <file>
+```
+
+For example, a very common linux command is `ls`, or "**l**i**s**t directory contents"
+
+Take ~5 minutes to try the following different ways of invoking the `ls`
+commands: 
+
+```bash
+$ ls
+$ ls -a
+$ ls -l
+$ ls -a -l
+$ ls -al
+$ ls -A
+```
+
+
+>**NOTE**:  Notice how the the lines in the code snippets above begin with a dollar sign.
+>This is a *convention*, and denotes that the the commands are to be run in a
+>non-privileged terminal/shell.  For this lesson, all you have to do is type
+>only what follows after the dollar sign.
+
+```bash
+# what's written
+$ ls -Al
+
+# what you type
+ls -Al <enter>
+```
