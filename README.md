@@ -2,9 +2,9 @@
 
 # Start here
 
-[./notes.md](planning notes - overall goals)
+[notes.md](planning notes - overall goals)
 
-[./linux-lesson.md](lesson 1 - basic linux commands)
+[linux-lesson.md](lesson 1 - basic linux commands)
 
 lesson 2 - sql injection basics
 
