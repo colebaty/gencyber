@@ -2,14 +2,10 @@
 
 # Start here
 
-[notes.md](planning notes - overall goals)
-
-[linux-lesson.md](lesson 1 - basic linux commands)
-
-lesson 2 - sql injection basics
-
-lesson 3 - brute force w/ hydra
-
+* [notes](planning notes - overall goals)
+* [linux-lesson](lesson 1 - basic linux commands)
+* lesson 1 - sql injection basics
+* lesosn 3 - brute force w/ hydra
 
 ## Basic git workflow
 
