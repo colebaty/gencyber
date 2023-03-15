@@ -2,8 +2,8 @@
 
 # Start here
 
-* [notes](planning notes - overall goals)
-* [linux-lesson](lesson 1 - basic linux commands)
+* [notes.md](planning notes - overall goals)
+* [linux-lesson.md](lesson 1 - basic linux commands)
 * lesson 1 - sql injection basics
 * lesosn 3 - brute force w/ hydra
 
