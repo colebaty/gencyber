@@ -1,4 +1,15 @@
 # intro
+
+## learning objectives
+- learn about linux commands
+    - command structure
+    - options/flags
+    - common commands
+        - cd
+        - ls
+        - cat
+- hands-on practice
+
 ## what is linux?
 - its an operating system
 - what's an operating system?
@@ -36,11 +47,12 @@ associated with the command line/terminal
 Linux commands have a general structure:
 
 ```
-$ <command> <options> <file>
+$ <command> <options/flags> <file>
 ```
 
 For example, a very common linux command is `ls`, or "**l**i**s**t directory contents"
 
+## hands-on practice
 Take ~5 minutes to try the following different ways of invoking the `ls`
 commands: 
 
@@ -51,8 +63,13 @@ $ ls -l
 $ ls -a -l
 $ ls -al
 $ ls -A
+$ ls --help
 ```
-
+## questions
+1. How do the different options change the output of this command?
+2. Why isn't there a file included as part of the command?  Why does this still
+   work?
+3. What do the different options/flags mean?  How do you find out?
 
 >**NOTE**:  Notice how the the lines in the code snippets above begin with a dollar sign.
 >This is a *convention*, and denotes that the the commands are to be run in a
