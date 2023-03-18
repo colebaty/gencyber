@@ -65,6 +65,7 @@ $ ls -al
 $ ls -A
 $ ls --help
 ```
+
 ## questions
 1. How do the different options change the output of this command?
 2. Why isn't there a file included as part of the command?  Why does this still

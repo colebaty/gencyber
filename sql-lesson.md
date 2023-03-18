@@ -45,12 +45,68 @@ classDiagram
       dateCreated
     }
 ```
+## hands on practice 1 - sql familiarization (~15 minutes)
 
-## basic SQL injection
+follow [this link](https://www.sqlcourse.com/beginner-course/selecting-data) to
+get some hands-on practice with SQL queries.  Take about fifteen minutes to
+read this page, and then attempt the questions at the end.
+
+
+### SQL query structure
+
 ```sql
-sql(database)> SELECT <columns> FROM <table> WHERE user_id = '$id';
+sql(database)> SELECT <columns> FROM <table> WHERE <condition>;
 ```
+
 - `sql(database)>` : this is the prompt.  we are currently working in the
   database named `database`
 - `SELECT <columns>` : select the information we're interested from each
-  condition
+  listed column
+- `FROM <table>` : the table from the database containing the data we're
+  interested in
+- `WHERE <condition>` : refinement - see below
+
+### `WHERE <condition>`
+
+- queries may return lots of information that we're not necessarily interested
+  in
+- use `WHERE` to further refine information returned
+- `<condition>` is an expression which evaluates to either *true* or *false*
+  (boolean)
+
+
+## putting it together - basic SQL injection
+- "injection": alterig user input to get the target machine to do something
+  other than the intended behavior
+
+### basic SQL query
+```sql
+sql(database)> SELECT <columns> FROM <table> WHERE user_id = '$id';
+```
+- `$id` is user input - is this injectible?
+
+### basic injection example
+- hinges on the `WHERE user_id = '$id'` part of the query[^1]
+- `'$id`' is a variable that will contain user-supplied information.
+- user can put in 'bad data' that alters the SQL query
+
+[^1:] this technique applies to this sepecific example only.  this is not a
+one-size-fits-all solution
+
+```sql
+sql(database)> SELECT <columns> FROM <table> WHERE user_id = '$id' or '1=1'-- -;
+```
+
+- `or '1=1'-- -`: user-supplied 'bad' data
+- a conditional which always evaluates to `true`
+
+### boolean expressions - truth table
+
+```
+| p | q | p AND q | p OR q | p AND p |
+|:-:|:-:|:-------:|:------:|:-------:|
+| f | f |    f    |    f   |    f    |
+| f | t |    f    |    t   |    f    |
+| t | f |    f    |    t   |    t    |
+| t | t |    t    |    t   |    t    |
+```
