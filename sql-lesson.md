@@ -133,6 +133,11 @@ sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id' or '1=1
 
 # `sqlmap`
 
+hopefully you can see that queries can become very complicated. also, not all
+databases share the same structure. and unless you're working in SQL every day,
+it can be difficult to remember the query syntax. so it can be very tedious and
+time-consuming to manually enumerate web app databases.
+
 `sqlmap` is a command-prompt tool used to automatically enumerate and dump
 information from vulnerable databases.  by the end of this lesson, you will
 have used this tool to dump the database to your kali machine. this is the
@@ -146,3 +151,47 @@ sqlmap -u "<url of injectible page>" --cookie="<cookie info>" -D <database> --du
 - `-D <database>` the name of the database we're interested in
 - `--dump` get all the records
 
+## `sqlmap` demonstration
+watch the demonstration.  you will need to make note of the following items,
+which the instructor will provide during the course of the demonstration:
+- url of the vulnerable page
+- cookie information
+
+## hands-on practice 3 - using `sqlmap` to dump database contents
+
+### exercise
+1. if needed, reconnect to the lab wifi and navigate back to the SQL injection
+   page.
+2. in a terminal, enter the command shown below.  substitute the information
+   from the demonstration in the appropriate places of the command. the
+   `--batch` flag makes it so the program doesn't prompt you for certain
+   choices; we're using the defaults for each of these
+```bash
+sqlmap -u "<url of injectible page>" --cookie="<cookie info>" -D <database> --dump --batch
+```
+
+### questions
+1. does `sqlmap` show us more information from this table than we dumped
+   manually in HO2?
+2. does `sqlmap` reveal more information about each user than we were able to
+   dump manually in HO2? if so what else is included?
+3. how can this information be used?
+4. what's up with the passwords?
+
+#### quick note about hashing
+the passwords in this table are *hashed*.
+[hashing](https://en.wikipedia.org/wiki/Hash_function) takes data and converts
+it into a specific format like we see in the dumped user table.  a hashing
+function must satisfy these requirements:
+* for any input, all output is the same length
+* for any input, all output is unique
+* cannot be reversed: that is, i can't work backwards from a hashed value to
+  obtain the original input
+
+web apps use hashing for authentication because, unfortunately, user database
+tables get dumped all the time. hashing helps web app developers to avoid
+storing passwords in plain text in the databases.
+
+web apps store the hashed version of your password.  when you log in and submit
+your password, it gets hashed, and the hashed values are compared.  if the
+hashes match, access is granted.
