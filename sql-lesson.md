@@ -142,7 +142,7 @@ general structure of the command we'll use
 sqlmap -u "<url of injectible page>" --cookie="<cookie info>" -D <database> --dump
 ```
 - `-u "<url of injectible page>"` the location of the injectible page
-- `--cookie="<cookie info>" necessary cookies required by the web app
+- `--cookie="<cookie info>"` necessary cookies required by the web app
 - `-D <database>` the name of the database we're interested in
 - `--dump` get all the records
 
