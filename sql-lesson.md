@@ -52,7 +52,7 @@ get some hands-on practice with SQL queries.  Take about fifteen minutes to
 read this page, and then attempt the questions at the end.
 
 
-### SQL query structure
+## SQL query structure
 
 ```sql
 sql(database)> SELECT <columns> FROM <table> WHERE <condition>;
@@ -76,29 +76,36 @@ sql(database)> SELECT <columns> FROM <table> WHERE <condition>;
 
 
 ## putting it together - basic SQL injection
-- "injection": alterig user input to get the target machine to do something
+- "injection": altering user input to get the target machine to do something
   other than the intended behavior
 
 ### basic SQL query
 ```sql
-sql(database)> SELECT <columns> FROM <table> WHERE user_id = '$id';
+sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id';
 ```
 - `$id` is user input - is this injectible?
 
 ### basic injection example
-- hinges on the `WHERE user_id = '$id'` part of the query[^1]
+- hinges on the `WHERE user_id = '$id'` part of the query
 - `'$id`' is a variable that will contain user-supplied information.
 - user can put in 'bad data' that alters the SQL query
 
-[^1:] this technique applies to this sepecific example only.  this is not a
-one-size-fits-all solution
 
 ```sql
-sql(database)> SELECT <columns> FROM <table> WHERE user_id = '$id' or '1=1'-- -;
+#original
+sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id';
+
+#injected
+sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id' or
+'1=1'-- -;
 ```
 
 - `or '1=1'-- -`: user-supplied 'bad' data
-- a conditional which always evaluates to `true`
+    - `or '1=1'`a conditional which always evaluates to `true`
+    - `-- -`: an SQL comment - ignore everything that follows
+
+- injection: user-supplied bad data
+    - `' or '1=1'-- -`
 
 ### boolean expressions - truth table
 
