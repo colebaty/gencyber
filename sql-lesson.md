@@ -114,6 +114,14 @@ sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id' or '1=1
 - injection: user-supplied bad data
     - `' or '1=1'-- -`
 
+### boolean expressions - truth table
+
+| p | q | p AND q | p OR q | p AND p |
+|:-:|:-:|:-------:|:------:|:-------:|
+| f | f |    f    |    f   |    f    |
+| f | t |    f    |    t   |    f    |
+| t | f |    f    |    t   |    t    |
+| t | t |    t    |    t   |    t    |
 
 ## hands-on practice 2 - sql injection (~15 min)
 
