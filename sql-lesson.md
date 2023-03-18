@@ -83,17 +83,17 @@ sql(database)> SELECT <columns> FROM <table> WHERE <condition>;
 | t | f |    f    |    t   |    t    |
 | t | t |    t    |    t   |    t    |
 
-## putting it together - basic SQL injection
+# putting it together - basic SQL injection
 - "injection": altering user input to get the target machine to do something
   other than the intended behavior
 
-### basic SQL query
+## basic SQL query
 ```sql
 sql(dvwa)> SELECT first_name, last_name FROM users WHERE user_id = '$id';
 ```
 - `$id` is user input - is this injectible?
 
-### basic injection example
+## basic injection example
 - hinges on the `WHERE user_id = '$id'` part of the query
 - `'$id`' is a variable that will contain user-supplied information.
 - user can put in 'bad data' that alters the SQL query
