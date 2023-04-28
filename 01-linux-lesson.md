@@ -63,27 +63,11 @@ contents of the file README.md to the output in the terminal.
 the `-n` flag means to print the output with line numbers.  
 
 ```bash
-$ cat -n README.md
-     1  # README
-     2
-     3  ## Basic git workflow
-     4
-     5  ```bash
-     6  git pull    # beginning of session
-     7
-     8  # editing
-     9  # 1) make some changes
-    10  # 2) commit the changes
-    11
-    12  vim <somefile>  # or nano or notepad++ or whatever
-    13  git status      # shows list of files changed since last commit
-    14  git add <file or files pertaining to this change>
-    15  git commit -m "<commit message>"
-    16
-    17  # repeat this process as needed
-    18
-    19  git push    # end of session
-    20  ```
+$ cat -n sample.txt
+     1  this is some text
+     2  this is a file
+     3  with some stuff in it
+
 ```
 
 
