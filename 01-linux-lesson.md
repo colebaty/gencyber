@@ -63,7 +63,7 @@ contents of the file README.md to the output in the terminal.
 the `-n` flag means to print the output with line numbers.  
 
 ```bash
-$ cat -n README.md                                                                   *[main]
+$ cat -n README.md
      1  # README
      2
      3  ## Basic git workflow
