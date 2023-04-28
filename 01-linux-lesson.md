@@ -49,10 +49,47 @@ Linux commands have a general structure:
 ```
 $ <command> <options/flags> <file>
 ```
+### Check on learning:
 
-For example, a very common linux command is `ls`, or "**l**i**s**t directory contents"
+```bash
+$ cat -n README.md
+```
+
+`cat` is a useful command for printing the contents of a file to to the
+terminal.  the word `cat` is short for _con*cat*enation_, which is computer
+talk for putting two things together.  in this case, we're concatenating the
+contents of the file README.md to the output in the terminal.
+
+the `-n` flag means to print the output with line numbers.  
+
+```bash
+$ cat -n README.md                                                                   *[main]
+     1  # README
+     2
+     3  ## Basic git workflow
+     4
+     5  ```bash
+     6  git pull    # beginning of session
+     7
+     8  # editing
+     9  # 1) make some changes
+    10  # 2) commit the changes
+    11
+    12  vim <somefile>  # or nano or notepad++ or whatever
+    13  git status      # shows list of files changed since last commit
+    14  git add <file or files pertaining to this change>
+    15  git commit -m "<commit message>"
+    16
+    17  # repeat this process as needed
+    18
+    19  git push    # end of session
+    20  ```
+```
+
 
 ## hands-on practice 1
+another common command is `ls`, or `ls`, or "_**l**_i_**s**_t directory contents"
+
 Take ~5 minutes to try the following different ways of invoking the `ls`
 commands: 
 
@@ -71,6 +108,8 @@ $ ls --help
 2. Why isn't there a file included as part of the command?  Why does this still
    work?
 3. What do the different options/flags mean?  How do you find out?
+4. Why is there no file used with this command?  what information is printed if
+   you give it a file name?
 
 >**NOTE**:  Notice how the the lines in the code snippets above begin with a dollar sign.
 >This is a *convention*, and denotes that the the commands are to be run in a
