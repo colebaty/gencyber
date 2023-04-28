@@ -47,7 +47,7 @@ classDiagram
 ```
 ## hands on practice 1 - sql familiarization (~15 minutes)
 
-follow [this link](https://www.sqlcourse.com/beginner-course/selecting-data) to
+follow [this link](https://w3schools.com/sql) to
 get some hands-on practice with SQL queries.  Take about fifteen minutes to
 read this page, and then attempt the questions at the end.
 

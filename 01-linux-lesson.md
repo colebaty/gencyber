@@ -52,7 +52,7 @@ $ <command> <options/flags> <file>
 
 For example, a very common linux command is `ls`, or "**l**i**s**t directory contents"
 
-## hands-on practice
+## hands-on practice 1
 Take ~5 minutes to try the following different ways of invoking the `ls`
 commands: 
 
@@ -84,3 +84,12 @@ $ ls -Al
 # what you type
 ls -Al <enter>
 ```
+
+## hands-on practice 2
+use the `--help` flag to explore the commands listed below.  what does each
+do?
+
+1. `mkdir`
+2. `ifconfig`
+3. `touch`
+4. `cat`
