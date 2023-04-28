@@ -90,9 +90,8 @@ $ ls --help
 ## questions
 1. How do the different options change the output of this command?
 2. Why isn't there a file included as part of the command?  Why does this still
-   work?
+   work? What happens if you give it a file name?
 3. What do the different options/flags mean?  How do you find out?
-4. Why is there no file used with this command?  what information is printed if
    you give it a file name?
 
 >**NOTE**:  Notice how the the lines in the code snippets above begin with a dollar sign.
