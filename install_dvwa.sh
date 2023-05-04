@@ -6,9 +6,9 @@
 # script helps automate process
 # must be run as root
 
-if [[ `whoami` -ne "root" ]]; then
+if [ ${EUID} -ne 0 ]; then
     echo "must be run as root; quitting"
-    return 1
+    exit
 fi
 
 WORKING_DIR=/var/www
