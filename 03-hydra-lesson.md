@@ -39,11 +39,17 @@ but hopefully you can see that it's not practical.
 computers are super fast and can help speed this up, but even a computer has
 limits.
 
-$$2.40 GHz = 416 * 10^6 calculations per second$$
+$$2.40 GHz = 416 * 10^6 calculations / second$$
 
-$$72^16 = some massive number$$
+$$72^16 = 5.2 * 10^{30}$$
 
-$$1.25 * 10^22 seconds to visit each password for a computer!!!$$
+$$1.25 * 10^22 seconds $$
+
+$ 5.2 * 10^{30} / 3 * 10^{6} = 1.7 * 10^{24} $ human lifetimes for a computer
+to vist each combination!
+
+this is what we call a "computationally infeasible" calculation, because no one
+would be around to even see the result!
 
 ## credentials are important!
 
