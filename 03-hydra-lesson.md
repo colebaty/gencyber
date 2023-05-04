@@ -39,9 +39,9 @@ but hopefully you can see that it's not practical.
 computers are super fast and can help speed this up, but even a computer has
 limits.
 
-$$2.40 GHz = 416 * 10^6 calculations / second$$
+$$2.40 GHz = 416 * 10^9 calculations / second$$
 
-$$72^16 = 5.2 * 10^{30}$$
+$$72^{16} = 5.2 * 10^{30}$$
 
 $$1.25 * 10^{22} seconds $$
 
