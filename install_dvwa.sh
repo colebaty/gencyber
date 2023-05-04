@@ -45,3 +45,16 @@ cp ${DVWA_DIR}/config/config.inc.php.dist ${DVWA_DIR}/config/config.inc.php
 echo "[+] setting up database"
 mysql < /root/mysql_commands
 
+echo "[+] finished setup"
+echo "########### ADDITIONAL STEPS ############"
+echo "DATABASE:"
+echo -e "\t1) navigate in a browser to <server ip>/index.php\n" \
+	"\t2) choose \"Setup/Reset DB\" from the left\n" \
+	"\t3) choose the \"Create/Reset DB\" button at the bottom of the page\n" \
+	"\n" \
+echo "SECURITY"
+echo -e "\t1) navigate in a browser to <server ip>/index.php\n" \
+	"\t2) choose \"DVWA Securit\" from the left (toward bottom)\n" \
+	"\t3) selecte desired security level\n" \
+	"\n" \
+	"if there are errors, Google is your friend\n" \
