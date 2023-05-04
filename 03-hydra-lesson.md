@@ -43,9 +43,9 @@ $$2.40 GHz = 416 * 10^6 calculations / second$$
 
 $$72^16 = 5.2 * 10^{30}$$
 
-$$1.25 * 10^22 seconds $$
+$$1.25 * 10^{22} seconds $$
 
-$ 5.2 * 10^{30} / 3 * 10^{6} = 1.7 * 10^{24} $ human lifetimes for a computer
+$5.2 * 10^{30} / 3 * 10^{6} = 1.7 * 10^{24}$ human lifetimes for a computer
 to vist each combination!
 
 this is what we call a "computationally infeasible" calculation, because no one
