@@ -14,13 +14,6 @@ fi
 WORKING_DIR=/var/www
 DVWA_GH=https://github.com/digininja/DVWA.git
 
-source /root/secrets.sh
-rm -f /root/secrets.sh
-
-#REQUIREMENTS=("apache2" "libapache2-mod-php" "mariadb-server" "mariadb-client" "php7.4" "php7.4-mysqli" "php7.4-gd")
-
-#apk --no-cache --update add ${REQUIREMENTS}
-
 echo "[+] installing required packages"
 apt-get update -y -q && apt-get install -y -q \
 	git \
