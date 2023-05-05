@@ -25,18 +25,24 @@ echo "[+] setting up DVWA"
 echo "[+] cloning DVWA"
 cd ${WORKING_DIR}
 git clone ${DVWA_GH}
+
+echo "[+] setting up database"
+mysql < ${WORKING_DIR}/DVWA/mysql_commands
+
+echo "[+] copying to default apache2 location"
 rm -rf ${WORKING_DIR}/html/*
 mv ${WORKING_DIR}/DVWA/* ${WORKING_DIR}/html/
 chown -R www-data:www-data ${WORKING_DIR}/html/*
+
+echo "[+] removing repo"
 rm -rf ${WORKING_DIR}/DVWA
 
 DVWA_DIR=${WORKING_DIR}/html
 
+echo "[+] initializing DVWA config"
 cp ${DVWA_DIR}/config/config.inc.php.dist ${DVWA_DIR}/config/config.inc.php
 
 
-echo "[+] setting up database"
-mysql < /root/mysql_commands
 
 echo "[+] finished setup"
 echo "########### ADDITIONAL STEPS ############"
