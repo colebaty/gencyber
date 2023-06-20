@@ -20,30 +20,35 @@ heading = int(zumi.read_z_angle()) # should be zero immediately after gyro reset
 counter = 0
 
 while True:
-    zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
-    
-    zumi.turn_right() if out else zumi.turn_left()
+    try:
+        zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
 
-    zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
+        print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
+        zumi.turn_right() if out else zumi.turn_left()
 
-    heading = int(zumi.read_z_angle()) - (counter * 360)
-    print("counter: {} | heading: {}".format(counter, heading))
-    counter += 1
-    if heading in range(-120, -59): # turn around(, bright eyes) - outbound
-        heading += 180 # TODO - does this need to be -= ?
-        zumi.turn(heading)
-        print("counter: {} | heading: {}".format(counter, heading))
-        out = not out
-    elif heading in range(-210, -149): # turn around(, bright eyes) - inbound
-        heading = 0
-        zumi.turn(heading)
-        print("counter: {} | heading: {}".format(counter, heading))
-        zumi.reset_drive()
-        out = not out
-    else:
-        break
+        zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
 
-screen.draw_text_center("lost: {}".format(heading))
+        heading = int(zumi.read_z_angle())
+        print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
+        if heading in range(-120, -59): # turn around(, bright eyes) - outbound
+            heading -= 180
+            zumi.turn(heading)
+            print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
+            out = not out
+        elif heading in range(-210, -149): # turn around(, bright eyes) - inbound
+            heading = 0
+            zumi.turn(heading)
+            print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
+            zumi.reset_drive()
+            out = not out
+        else:
+            break
+        counter += 1
+    except:
+        screen.draw_text_center("lost: {}".format(heading))
+    finally:
+        zumi.stop()
+
 
 # zumi.angry()
 # screen.draw_text_center(
