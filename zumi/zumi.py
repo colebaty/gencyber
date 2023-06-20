@@ -21,19 +21,24 @@ counter = 0
 
 while True:
     zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
+    
     zumi.turn_right() if out else zumi.turn_left()
-    # zumi.turn_left() if out else zumi.turn_right()
+
     zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
+
     heading = int(zumi.read_z_angle()) - (counter * 360)
-    print("heading: {}".format(heading))
+    print("counter: {} | heading: {}".format(counter, heading))
     counter += 1
     if heading in range(-120, -59): # turn around(, bright eyes) - outbound
         heading += 180
         zumi.turn(heading)
+        print("counter: {} | heading: {}".format(counter, heading))
         out = not out
-    elif heading in range(150, 211): # turn around(, bright eyes) - inbound
-        zumi.turn(0)
-        zumi.reset_gyro()
+    elif heading in range(-210, -149): # turn around(, bright eyes) - inbound
+        heading = 0
+        zumi.turn(heading)
+        print("counter: {} | heading: {}".format(counter, heading))
+        zumi.reset_drive()
         out = not out
     else:
         break
