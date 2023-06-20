@@ -30,7 +30,7 @@ while True:
     print("counter: {} | heading: {}".format(counter, heading))
     counter += 1
     if heading in range(-120, -59): # turn around(, bright eyes) - outbound
-        heading += 180
+        heading += 180 # TODO - does this need to be -= ?
         zumi.turn(heading)
         print("counter: {} | heading: {}".format(counter, heading))
         out = not out
