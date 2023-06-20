@@ -1,0 +1,39 @@
+screen.clear_display()
+screen.draw_text_center("hey, i'm walkin' here")
+
+heading=0
+zumi.reset_gyro()
+
+def drive(out=True; thresh=100):
+    if out:
+        turn = -1 # clockwise
+    else:
+        turn = 1  # ccw
+
+    try:
+        for x in range(200):
+            ir_readings = zumi.get_all_IR_data()
+            front_right_ir = ir_readings[0]
+            front_left_ir = ir_readings[5]
+            
+            if front_right_ir < 100: # must calibrate to each zumi
+                zumi.stop()
+                heading = heading + (30 * turn)
+                zumi.turn(heading,0.5)
+                
+            if front_left_ir < 100:
+                zumi.stop()
+                heading = heading + (30 * turn)
+                zumi.turn(heading,0.5)
+                
+            if front_right_ir < 100 and front_left_ir < 100:
+                zumi.stop()
+                zumi.reverse()
+                heading = heading + (90 * turn)
+                zumi.turn(heading)
+                
+            else:
+                zumi.forward_step(speed, heading)
+    finally:
+        zumi.stop()
+        screen.draw_text_center("finished")
