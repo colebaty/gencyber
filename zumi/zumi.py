@@ -6,6 +6,10 @@ LTHRESH=170
 RTHRESH=150
 FOREVER=100000.0
 
+OUTBOUND_TURNAROUND_ANGLE = -90
+INBOUND_TURNAROUND_ANGLE = -180
+FUZZ = 30
+
 zumi = Zumi()
 screen=Screen()
 
@@ -30,12 +34,12 @@ while True:
 
         heading = int(zumi.read_z_angle())
         print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
-        if heading in range(-120, -59): # turn around(, bright eyes) - outbound
+        if heading in range(OUTBOUND_TURNAROUND_ANGLE - FUZZ, OUTBOUND_TURNAROUND_ANGLE + FUZZ): # turn around(, bright eyes) - outbound
             heading -= 180
             zumi.turn(heading)
             print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
             out = not out
-        elif heading in range(-210, -149): # turn around(, bright eyes) - inbound
+        elif heading in range(INBOUND_TURNAROUND_ANGLE - FUZZ, INBOUND_TURNAROUND_ANGLE + FUZZ): # turn around(, bright eyes) - inbound
             heading = 0
             zumi.turn(heading)
             print("counter: {} | heading: {} | z-angle: {}".format(counter, heading, str(int(zumi.read_z_angle()))))
