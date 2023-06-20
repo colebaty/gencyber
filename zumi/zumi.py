@@ -25,20 +25,20 @@ while True:
     # zumi.turn_left() if out else zumi.turn_right()
     zumi.forward_avoid_collision(40, FOREVER, None, LTHRESH, RTHRESH)
     heading = int(zumi.read_z_angle()) - (counter * 360)
+    print("heading: {}".format(heading))
     counter += 1
     if heading in range(-120, -59): # turn around(, bright eyes) - outbound
         heading += 180
         zumi.turn(heading)
         out = not out
-    elif heading in range(-300, -239): # turn around(, bright eyes) - inbound
+    elif heading in range(150, 211): # turn around(, bright eyes) - inbound
         zumi.turn(0)
         zumi.reset_gyro()
         out = not out
     else:
         break
 
-screen.draw_text_center("lost")
-screen.draw_text_center(str(int(zumi.read_z_angle())))
+screen.draw_text_center("lost: {}".format(heading))
 
 # zumi.angry()
 # screen.draw_text_center(
